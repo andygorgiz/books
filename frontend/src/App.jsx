@@ -12,7 +12,7 @@ function App() {
   };
 
   const addBook = async () => {
-    await API.post("/", { title, author });
+    await API.post("/books/", { title, author });
     fetchBooks();
   };
 
