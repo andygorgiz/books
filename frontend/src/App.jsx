@@ -6,20 +6,20 @@ function App() {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
 
-  const fetchBooks = async () => {
-    const res = await API.get("/");
-    setBooks(res.data);
-  };
+const fetchBooks = async () => {
+  const res = await API.get("/books/");
+  setBooks(res.data);
+};
 
-  const addBook = async () => {
-    await API.post("/books/", { title, author });
-    fetchBooks();
-  };
+const addBook = async () => {
+  await API.post("/books/", { title, author });
+  fetchBooks();
+};
 
-  const deleteBook = async (id) => {
-    await API.delete(`/${id}`);
-    fetchBooks();
-  };
+const deleteBook = async (id) => {
+  await API.delete(`/books/${id}`);
+  fetchBooks();
+};
 
   useEffect(() => {
     fetchBooks();
